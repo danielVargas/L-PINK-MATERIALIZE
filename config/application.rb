@@ -21,6 +21,26 @@ module Lpink
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+
+    # Bower assets
+
+    config.assets.paths << Rails.root.join("vendor","assets","bower_components")
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components', 'bootstrap','fonts')
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components', 'font-awesome','fonts')
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'stylesheets')
+
+    # Assets para incorporar fonts de bootsrap
+
+    config.assets.precompile.push(Proc.new do |path|
+      File.extname(path).in? [
+        '.png',  '.gif', '.jpg', '.jpeg', '.svg', # Images
+        '.eot',  '.otf', '.svc', '.woff', '.ttf', '.woff2' # Fonts
+      ]
+    end)
+
+
     config.active_record.raise_in_transactional_callbacks = true
+
   end
 end
