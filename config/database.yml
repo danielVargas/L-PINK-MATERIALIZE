@@ -14,8 +14,8 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password:
-  socket: /var/run/mysqld/mysqld.sock
+  password: 'root'
+  host: 127.0.0.1
 
 development:
   <<: *default
@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: lpink_production
-  username: lpink
-  password: <%= ENV['LPINK_DATABASE_PASSWORD'] %>
+  username: root
+  password: 'root'

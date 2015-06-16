@@ -1,4 +1,41 @@
 Rails.application.routes.draw do
+
+#  scope :api do
+#    resources :principal, only: [:index], defaults: {format: :json}
+#  end
+
+  resources :actum
+  resources :temas
+  resources :elemento_dialogicos
+  resources :participante_acta
+
+
+  # Rutas para Principal
+
+  get 'principal/index'
+  get 'principal/usuariosProyecto'
+  get 'principal/usuarios'
+  get 'principal/usuariosActa'
+  post 'principal/createAsistencia'
+  get 'principal/cantidadUsuariosProyecto'
+
+  # Rutas para acta
+
+  post 'acta/create'
+  get 'acta/index'
+  get 'acta/cantidadActas'
+  get 'acta/ultimaActa'
+
+
+  # Rutas para dialogico
+
+  get 'dialogico/index'
+
+  # Rutas para tema
+
+
+  root 'principal#principal'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
