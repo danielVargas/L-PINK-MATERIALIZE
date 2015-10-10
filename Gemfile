@@ -35,6 +35,9 @@ gem 'tinymce-rails'
 # From api response
 gem 'responders', '~> 2.0'
 
+
+# Material Design
+gem 'materialize-sass'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

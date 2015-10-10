@@ -18,6 +18,8 @@
  *= require_tree .
  */
 
+ @import "materialize";
+
 .fa.spinning {
     animation: spin 1s infinite linear;
     -webkit-animation: spin2 1s infinite linear;
@@ -96,7 +98,7 @@
   color:  #FFFFFF!important;
 
 }
-.navbar-warning a:hover { 
+.navbar-warning a:hover {
     background-color: #870058!important;
 }
 .navbar-warning a:focus {
@@ -116,24 +118,24 @@ border-color: -moz-use-text-color #C3C3C3 #C3C3C3;
 border-right: 1px solid #C3C3C3;
 }
 
- 
-  .editable { 
+
+  .editable {
     height: 500px;
     margin: 20px;
     font-size: 20px;
     overflow: auto;
-  } 
-  .editable2 { 
+  }
+  .editable2 {
     height: 542px;
-    
+
     font-size: 20px;
     overflow: auto;
     border-bottom: 1px solid #C3C3C3;
     border-top: 1px solid #C3C3C3;
     border-right: 1px solid #C3C3C3;
     border-left: 1px solid #C3C3C3;
-  
-  } 
+
+  }
 
 
   .alert-info {

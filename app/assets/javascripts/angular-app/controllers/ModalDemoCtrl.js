@@ -4,7 +4,7 @@ angular.module('principalModule').controller('ModalDemoCtrl', function ($scope, 
 
 
   $scope.animationsEnabled = true;
-  
+
   // Para los cuadro de tiempo
 
   $scope.open = function (size) {
