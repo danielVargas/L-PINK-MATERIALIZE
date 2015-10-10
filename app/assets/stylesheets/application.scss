@@ -18,6 +18,7 @@
  *= require_tree .
  */
 
+
  @import "materialize";
 
 .fa.spinning {
@@ -142,3 +143,26 @@ border-right: 1px solid #C3C3C3;
 
     width: 20%!important;
   }
+
+
+  .horayfecha {
+
+    width: 100%!important;
+  }
+
+  .modal{
+
+
+  }
+.app-modal-window .modal-dialog {
+  margin: 0px!important;
+  width: 100%!important;
+  height: 100%!important;
+}
+.cajita{
+  margin: 1px;
+  position: absolute;
+  width: 150px!important;
+  height: 100px!important;
+  overflow: auto;
+}

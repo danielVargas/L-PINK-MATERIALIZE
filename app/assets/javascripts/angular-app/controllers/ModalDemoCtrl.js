@@ -7,13 +7,15 @@ angular.module('principalModule').controller('ModalDemoCtrl', function ($scope, 
 
   // Para los cuadro de tiempo
 
+
   $scope.open = function (size) {
 
     var modalInstance = $modal.open({
       animation: $scope.animationsEnabled,
       templateUrl: 'myModalContent.html',
       controller: 'ModalInstanceCtrl',
-      size: size,
+      windowClass: 'app-modal-window',
+      backdrop: "static",
       resolve: {
         items: function () {
           return $scope.items;

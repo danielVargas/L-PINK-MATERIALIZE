@@ -30,7 +30,5 @@
 //= require_tree ./angular-app/services
 //= require_tree ./angular-app/controllers
 //= require tinymce
+//= require materialize-sprockets
 //= require_tree .
-
-
-

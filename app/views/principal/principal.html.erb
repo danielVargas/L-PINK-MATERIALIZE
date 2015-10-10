@@ -19,55 +19,66 @@
 
 					<!-- Se define modal para nueva acta -->
 
-						<div ng-controller="ModalDemoCtrl" class="container">
+						<div ng-controller="ModalDemoCtrl" class="modalacta">
 						    <script type="text/ng-template" id="myModalContent.html">
 						        <div class="modal-header">
 						            <h3 class="modal-title fa fa-comments fa-lg">  Crear Acta Nº {{nuevaActa}}</h3>
 						        </div>
 						        <div class="modal-body container-fluid">
+											<div class="row">
+												<div class="col-md-6">
+													<p class="input-group">
+														<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+														<span class="input-group-btn">
+															<button type="button" class="btn btn-default" ng-click="open($event)"><i class="fa fa-calendar"></i></button>
+														</span>
+													</p>
+													<div class="row-fluid">
+														<div class="col-md-6">
+														<timepicker ng-model="mytimeInicio" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+														<div class="alert alert-info horayfecha" style="width:100%"> Hora de Inicio: {{mytimeInicio | date:'shortTime' }}</div>
+														</div>
+														<div class="col-md-6">
+															<timepicker ng-model="mytimeTermino" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+															<div class="alert alert-info horayfecha"> Hora de Termino: {{mytimeTermino | date:'shortTime' }}</div>
+														</div>
+												  </div>
+											</div>
+												<div class="col-md-6">
+												<div id="Participantes" class="container-fluid blanco">
+														<h4> Particpantes presentes </h4>
+														<ul>
+														<div class="row">
+															<li ng-repeat="data in usuariosSeleccionados">
+																<div class="col-md-6">
+																<input type="checkbox" ng-model="data.estado" checklist-value="role" id = "{{data.participante_iniciales}}" / >
+																<label for="{{data.participante_iniciales}}">{{data.participante_iniciales}}</label>
 
-						        	<p class="input-group">
-						        	  <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-						        	  <span class="input-group-btn">
-						        	    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="fa fa-calendar"></i></button>
-						        	  </span>
-						        	</p>
+																</div>
+															</li>
 
-						        	<div class="container-fluid blanco">
-						        	<div class="row-fluid">
-						        	<div class="col-md-6">
-						        	<timepicker ng-model="mytimeInicio" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
-						        	<div class="alert alert-info" style="width:100%"> Hora de Inicio: {{mytimeInicio | date:'shortTime' }}</div>
+
+
+																<div class="container-fluid blanco">
+
+													          	 <p> Pertenece Al proyecto:  {{proyecto}} </p>
+													          	 <p> La ultima acta es: {{actaFinal}}</p>
+
+										          	 </div>
+
+											        </div>
+
+														</div>
+
+														</ul>
+												</div>
+											</div>
 						        	</div>
-						        	<div class="col-md-6">
-						          	<timepicker ng-model="mytimeTermino" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
-						          	<div class="alert alert-info"> Hora de Termino: {{mytimeTermino | date:'shortTime' }}</div>
-						          	</div>
-						          	</div>
-						        	</div>
-
-						        	<div id="Participantes" class="container-fluid blanco">
-										<h3> Particpantes presentes </h3>
-										<ul>
-											<li ng-repeat="data in usuariosSeleccionados">
-											<input type="checkbox" ng-model="data.estado" checklist-value="role"> {{data.participante_iniciales}} Asistencia: {{data.estado}}
-											</li>
-										</ul>
-
-						        	</div>
-									<div class="container-fluid blanco">
-
-						          	 <p> Pertenece Al proyecto:  {{proyecto}} </p>
-						          	 <p> La ultima acta es: {{actaFinal}}</p>
-
-						          	 </div>
-
-						        </div>
 
 
 						        <div class="modal-footer">
-						            <button class="btn btn-primary fa fa-check fa-lg" ng-click="ok()">  OK</button>
-						            <button class="btn btn-danger fa fa-times fa-lg" ng-click="cancel()">  Cancel</button>
+						            <button class="btn btn-primary fa fa-check fa-lg" ng-click="ok()">  Confirmar</button>
+						            <button class="btn btn-danger fa fa-times fa-lg" ng-click="cancel()">  Cancelar</button>
 						        </div>
 						    </script>
 
@@ -176,7 +187,7 @@
 
 <div id="Grupo3", class="container-fluid" ng-controller="actasController">
 
-	<button class="btn " ng-click="isCollapsed = !isCollapsed">
+	<button class="btn waves-effect waves-light" ng-click="isCollapsed = !isCollapsed">
 	Resumen
 	<span class="fa fa-chevron-down"></span>
 	</button>
@@ -185,10 +196,10 @@
 		<h5>Tabla: </h5>
 		<div class="container-fluid">
 			<div class="row">
-				<div ng-repeat="info in datos" class="col-md-2">
+				<div ng-repeat="info in datos" class="col-md-2 cajita">
 					<span class="span3"> Acta: {{info.acta_correlativo}} </span>
 
-						<div ng-repeat="elem in dialogicos | filter: {actum_id: info.id} : true" class="row-fluid">
+						<div ng-repeat="elem in dialogicos | filter: {actum_id: info.id} : true" >
 
 						<span class="span3">{{elem.actum_id}} {{elem.dialogico_correlativo}} {{elem.dialogico_nombre}} </span>
 
@@ -212,7 +223,7 @@
 
 <div id="Desarrollo-Sintesis", class="container-fluid " ng-controller="CollapseDemoCtrl">
 
-	<button class="btn" ng-click="isCollapsed = !isCollapsed">
+	<button class="btn waves-effect waves-light" ng-click="isCollapsed = !isCollapsed">
 	Desarrollo
 	<span class="fa fa-chevron-down"></span>
 	</button>
