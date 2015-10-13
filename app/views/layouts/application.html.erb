@@ -6,30 +6,40 @@
   <%= javascript_include_tag 'application' %>
  <%= csrf_meta_tags %>
 </head>
+<style media="screen">
+  .side-nav{
+    background-color: #FFFFFF!important;
+    color: #870058!important;
+    text-decoration: none!important;
+    font-size: 15px!important;
+  }
 
+  .side-nav li ul a {
+    background-color: #FFFFFF!important;
+    color: #870058!important;
+    text-decoration: none!important;
+    font-size: 15px!important;
+  }
+  /* mouse over link */
+  .side-nav a:hover {
+    background-color: #D7D7D7!important;
+    color: #870058!important;
+    text-decoration: none!important;
+    font-size: 15px!important;
+  }
+
+</style>
 
 <body class="cafe-claro">
 <div class="navbar navbar-warning rosado-fuerte" role= "navigation">
 
-    <div class="menupad container">
-      <a  data-activates="side-menu" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
+    <div class="menupad container ">
+      <a  data-activates="side-menu" class="button-collapse show-on-large"><i class="mdi-navigation-menu" style="font-size: 40px;"></i></a>
       <a class="brand-logo"><%= image_tag "logo4.png", :class => "responsive-img adaptarLogo", :title => "logo"%></a>
     </div>
       <ul id="side-menu" class="side-nav">
-        <li class="active"><a href="#">Inicio</a></li>
-        <li><a href="#">Proyectos</a></li>
-        <li class="dropdown">
-            <a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Acciones <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Actas</a></li>
-                <li><a href="#">Participantes</a></li>
-                <li><a href="#">Elementos dialógicos</a></li>
-                <li class="divider"></li>
-
-                <li><a href="#">Seguimiento de acta</a></li>
-
-            </ul>
-        </li>
+        <li><a href="#"><span style="color: #870058!important;font-size: 15px!important;">Inicio</span></a></li>
+        <li><a href="#"><span style="color: #870058!important;font-size: 15px!important;">Proyectos</span></a></li>
       </ul>
 
 </div>
